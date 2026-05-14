@@ -1,0 +1,58 @@
+/* CleanRoom — Global base styles
+   ConsolePage ships its own scoped <style> block.
+   This file handles html/body reset and LandingPage compatibility.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Landing page tokens (LandingPage.jsx uses these) */
+  --cream: #F5F0EB;
+  --warm-50: #FAFAF8;
+  --cyan-soft: #A8E6E6;
+  --cyan-glow: #2EC4C4;
+  --amber-soft: #FFD59E;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+canvas { display: block; }
+
+/* Landing page scrollbar */
+.landing-page ::-webkit-scrollbar { width: 6px; }
+.landing-page ::-webkit-scrollbar-track { background: var(--cream); }
+.landing-page ::-webkit-scrollbar-thumb { background: #D9CFBF; border-radius: 3px; }
+.landing-page ::-webkit-scrollbar-thumb:hover { background: #5CC8C8; }
+
+::selection { background: rgba(59,130,246,0.25); color: #fff; }
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-3 bg-[#2EC4C4] text-white font-medium rounded-full
+           hover:bg-[#5CC8C8] transition-all duration-300
+           shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply px-8 py-3 border border-[#D9CFBF] text-[#0D0F12] font-medium rounded-full
+           hover:border-[#2EC4C4] hover:text-[#2EC4C4] transition-all duration-300;
+  }
+  .glass {
+    @apply bg-white/60 backdrop-blur-md border border-white/80 rounded-2xl;
+  }
+  .entity-tag {
+    @apply font-mono text-xs px-2 py-0.5 rounded-full border;
+  }
+}

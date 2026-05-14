@@ -1,0 +1,34 @@
+# ─── Python / Server ──────────────────────────────────────────────────────────
+server/venv/
+server/env/
+server/.env
+server/__pycache__/
+server/**/*.pyc
+server/.pytest_cache/
+server/tmp/
+server/app/models/hub/
+server/models/
+*.onnx
+
+# ─── Node / Client ────────────────────────────────────────────────────────────
+client/node_modules/
+client/dist/
+client/.env
+client/.env.*
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+
+# ─── OS / Editor ──────────────────────────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ─── General ──────────────────────────────────────────────────────────────────
+.env
+tmp/
+temp/
+logs/
+*.log
