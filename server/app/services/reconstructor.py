@@ -121,7 +121,7 @@ def _reconstruct_pdf(data: bytes, entities: List[ReconciledEntity], registry) ->
     write a clean new PDF.
 
     Uses ONLY Python-layer fitz ops:
-      fitz.open / page.get_text / new_page / insert_text / save
+      fitz.open / page.get_text / new_page / insert_textbox / save
     No search_for, no apply_redactions — those C-level calls hang on
     Windows PyMuPDF 1.24.x regardless of Python try/except wrappers.
     """
@@ -136,12 +136,21 @@ def _reconstruct_pdf(data: bytes, entities: List[ReconciledEntity], registry) ->
         page_text  = orig_page.get_text()
         clean_text = _single_pass_replace(page_text, replacement_map)
 
-        new_page = new_doc.new_page(
-            width=orig_page.rect.width  or 595,
-            height=orig_page.rect.height or 842,
+        w = orig_page.rect.width  or 595
+        h = orig_page.rect.height or 842
+        new_page = new_doc.new_page(width=w, height=h)
+
+        # Use insert_textbox with a margin rect so text wraps and never clips.
+        # rect shrunk by 50pt on all sides gives a clean readable margin.
+        text_rect = fitz.Rect(50, 50, w - 50, h - 50)
+        new_page.insert_textbox(
+            text_rect,
+            clean_text,
+            fontsize=9,
+            fontname="cour",
+            lineheight=1.4,   # breathing room between lines
+            expandtabs=4,
         )
-        # insert_text clips at page bottom for very dense pages — acceptable
-        new_page.insert_text((50, 50), clean_text, fontsize=9, fontname="cour")
 
     original_doc.close()
 

@@ -24,8 +24,10 @@ _PATTERNS: List[Tuple[EntityType, re.Pattern]] = [
     # Clinical Document Headers (Name / Patient Name / PT)
     # Catches things like "Patient Name: Parwaaz Joshi" which NER often skips.
     # Uses [ \t] instead of \s to prevent multiline greediness.
+    # Negative lookahead prevents matching structural labels like
+    # "Patient Record Entry 1" — "Record" starts with a capital but is not a name.
     (EntityType.PERSON, re.compile(
-        r"\b(?:Patient Name|Patient|Name|PT)[ \t:]+([A-Z][a-z]+(?:[ \t]+[A-Z][a-z]+)+)\b"
+        r"\b(?:Patient Name|Name|PT)[ \t:]+([A-Z][a-z]+(?:[ \t]+[A-Z][a-z]+)+)\b"
     )),
     # SSN  (###-##-####)
     (EntityType.SSN, re.compile(r"\b\d{3}-\d{2}-\d{4}\b")),

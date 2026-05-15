@@ -273,4 +273,26 @@ def reconcile(
     # Preserving them here prevents false-positive redaction.
     final = [e for e in merged if not is_allowlisted(e.text)]
 
+    # ── Address span expansion: absorb leading street numbers ─────────────────
+    # NER tags "Baker Street" but misses "221B" prefix. If the token
+    # immediately before an ADDRESS span is a number/alphanumeric (e.g. "221B",
+    # "91", "145"), expand the span to include it so the full address is
+    # replaced, not just the street name.
+    for ent in final:
+        if ent.entity_type in (EntityType.ADDRESS, EntityType.LOCATION):
+            # Walk left past whitespace then grab a leading alphanumeric token
+            i = ent.start - 1
+            while i >= 0 and text[i] == ' ':
+                i -= 1
+            # i now points at last char of potential prefix token
+            if i >= 0 and (text[i].isalnum()):
+                j = i
+                while j > 0 and text[j - 1].isalnum():
+                    j -= 1
+                # Only absorb short tokens (≤6 chars) — avoids swallowing words
+                token = text[j:i + 1]
+                if len(token) <= 6 and any(c.isdigit() for c in token):
+                    ent.start = j
+                    ent.text  = text[ent.start:ent.end]
+
     return final
