@@ -19,6 +19,15 @@ Unlike traditional destructive redaction, CleanRoom uses **deterministic pseudon
 
 ---
 
+## 🌐 Live Deployment
+
+Check out the live application and API documentation without needing to run it locally:
+
+- **Frontend Application (Vercel):** [cleanroom-delta.vercel.app](https://cleanroom-delta.vercel.app/)
+- **Backend API & Swagger Docs (Hugging Face Spaces):** [parwaaz-cleanroom-api.hf.space/docs](https://parwaaz-cleanroom-api.hf.space/docs)
+
+---
+
 ## 🌟 Key Features
 
 - 🧠 **Hybrid Detection Pipeline**: Merges regex-based extraction with transformer-based Named Entity Recognition (NER) using ONNX-optimized models.
