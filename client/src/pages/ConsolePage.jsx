@@ -969,6 +969,14 @@ export default function ConsolePage() {
                     </a>
                   </div>
 
+                  {/* Disclaimer */}
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '10px 12px', background: 'rgba(245, 158, 11, 0.05)', border: '1px solid rgba(245, 158, 11, 0.15)', borderRadius: 6 }}>
+                    <AlertTriangle size={12} color="#F59E0B" style={{ marginTop: 2, flexShrink: 0 }} />
+                    <p style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--amber)', lineHeight: 1.5, margin: 0, opacity: 0.9 }}>
+                      <strong>Note:</strong> For highly sensitive data, please verify the audit log. The underlying NLP model provides probabilistic predictions and may not achieve 100% accuracy.
+                    </p>
+                  </div>
+
                   {/* Type breakdown pills */}
                   {Object.keys(result.stats?.by_type || {}).length > 0 && (
                     <div>
