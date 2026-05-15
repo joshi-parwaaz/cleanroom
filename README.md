@@ -1,24 +1,14 @@
 <div align="center">
   <img src="docs/assets/banner.png" alt="CleanRoom Banner" width="100%" />
-  
-  <br />
+
   <br />
 
   <h1>CleanRoom</h1>
   <p><strong>Privacy-Preserving Clinical Document Anonymization Engine</strong></p>
 
-  <p>
-
-    <a href="https://github.com/joshi-parwaaz/cleanroom/blob/main/LICENSE">
-      <img src="https://img.shields.io/badge/License-MIT-0B1120.svg?style=for-the-badge" alt="License" />
-    </a>
-    <a href="https://cleanroom-delta.vercel.app/">
-      <img src="https://img.shields.io/badge/Live_Demo-06B6D4?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
-    </a>
-    <a href="https://parwaaz-cleanroom-api.hf.space/docs">
-      <img src="https://img.shields.io/badge/API-Docs-0B1120?style=for-the-badge&logo=fastapi&logoColor=white" alt="API Docs" />
-    </a>
-  </p>
+  [![License](https://img.shields.io/badge/License-MIT-0B1120.svg?style=for-the-badge)](https://github.com/joshi-parwaaz/cleanroom/blob/main/LICENSE)
+  [![Live Demo](https://img.shields.io/badge/Live_Demo-06B6D4?style=for-the-badge&logo=vercel&logoColor=white)](https://cleanroom-delta.vercel.app/)
+  [![API Docs](https://img.shields.io/badge/API-Docs-0B1120?style=for-the-badge&logo=fastapi&logoColor=white)](https://parwaaz-cleanroom-api.hf.space/docs)
 </div>
 
 <br />
