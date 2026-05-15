@@ -8,9 +8,7 @@
   <p><strong>Privacy-Preserving Clinical Document Anonymization Engine</strong></p>
 
   <p>
-    <a href="https://github.com/joshi-parwaaz/cleanroom/actions">
-      <img src="https://img.shields.io/github/actions/workflow/status/joshi-parwaaz/cleanroom/ci.yml?style=for-the-badge&color=06B6D4" alt="Build Status" />
-    </a>
+
     <a href="https://github.com/joshi-parwaaz/cleanroom/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/License-MIT-0B1120.svg?style=for-the-badge" alt="License" />
     </a>
